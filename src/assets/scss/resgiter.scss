@@ -1,0 +1,139 @@
+@import "reset";
+
+
+.resgiter{
+	width: 100%;
+	height:100%;
+	//logo部分
+	.logo{
+		width:100%;
+		text-align:center;
+		height:80px;
+		vertical-align: middle;
+		margin:25px -232px;
+		img{
+			height:80px;
+			display:inline-block;
+		}
+		span{
+			width:0;
+			height:100%;
+			display:inline-block;
+		}
+	}
+	form{
+	margin: 0 120px;
+	float: left;
+	width:319px;
+	position: relative;
+
+	// right a
+		.cont-righta {
+		    width: 315px;
+		    height: 46px;
+		    text-align: center;
+		    line-height: 46px;
+		    display: block;
+		    overflow: hidden;
+		    background:#CD0000;
+		    font-weight:bold;
+		    a{
+			    color: #fff;
+			    font-size: 16px;
+			    &:hover{
+			    	color:#3399cc;
+			    }
+		    }
+		}
+		.regisiter-cont-tab {
+		    margin-top: 30px;
+		    p {
+			    margin-bottom: 18px;
+			    line-height: 32px;
+			    position: relative;
+			    zoom: 1;
+			    z-index: 500;
+			    overflow: hidden;
+			    height: 32px;
+			    .regisiter-sp {
+				    float: left;
+				}
+				b{
+				    position:absolute;
+				    padding-left: 25px;
+				    left:325px;
+				    color:#cd1414;
+				    }
+				.onCorrect1,.onCorrect2,.onCorrect3,.onCorrect4,.onCorrect5  {
+				    width:22px;
+				    height:28px;
+				    display:none;
+				}
+				.email11,.email21,.email31,.email41,.email51{
+					display:none;
+				}
+				.email12,.email22,.email32,.email13,.email24,.email23,.email33,.email42,.email43,.email52,.email53{
+					display:none;
+				}
+				input {
+				    border: 1px solid #c8c8c8;
+				    text-indent: 5px;
+				    line-height: 28px;
+				    margin-left: 3px;
+				    height: 28px;
+				    width:250px;
+				   
+				}
+			.regisiter-yzm {
+			    position: absolute;
+			    width:60px;
+			    height:28px;
+			    left: 254px;
+			    top: 3px;
+			    font-weight:bold;
+			    font-size:18px;
+			    text-align:center;
+			}
+			.phone-input-left {
+			    width: 118px;
+			    overflow: hidden;
+			    padding-left: 5px;
+			    margin-right: 10px;
+			}
+			}
+			// 确认登录
+			div{
+				.reisiter-submit{
+					height: 46px;
+					border:none;
+					line-height:46px;
+				    margin: 0 auto;
+				    cursor: pointer;
+				    width: 315px;
+				    overflow: hidden;
+				    background:#CD0000;
+				    color:#fff;
+				    font-size:16px;
+				    font-weight:bold;
+				    text-align: center;
+				    &:hover{
+						color:#3399cc;
+				    }
+				}
+			}			
+		}
+	}
+	// right
+	.rightLogo{
+		float: right;
+		margin-right: 60px;
+		margin-top: -90px;
+	}
+}
+
+
+
+
+
+
+

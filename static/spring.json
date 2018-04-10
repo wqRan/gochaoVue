@@ -1,0 +1,99 @@
+[
+	{
+		"clothName":"新款卡通男童纯棉卫衣",
+		"price":"58.1",
+		"number":"6300",
+		"img":"../images/spring and autumn/s-fleece1.png",
+		"category":"春秋潮款",
+		"_id":"0"
+	},
+	{
+		"clothName":"白色圆领秋装卫衣",
+		"price":"59.9",
+		"number":"6230",
+		"img":"../images/spring and autumn/s-fleece2.png",
+		"category":"春秋潮款",
+		"_id":"1"	
+	},
+	{
+		"clothName":"春季新款纯棉带尾巴卫衣",
+		"price":"78.1",
+		"number":"6330",
+		"img":"../images/spring and autumn/s-fleece3.png",
+		"category":"春秋潮款",
+		"_id":"2"	
+	},
+	{
+		"clothName":"女童风衣外套",
+		"price":"89",
+		"number":"6220",
+		"img":"../images/spring and autumn/s-jacket1.png",
+		"category":"春秋潮款",
+		"_id":"3"	
+	},
+	{
+		"clothName":"男童开衫外套",
+		"price":"87.8",
+		"number":"3300",
+		"img":"../images/spring and autumn/s-jacket2.png",
+		"category":"春秋潮款",
+		"_id":"4"	
+	},
+	{
+		"clothName":"女童户外防晒外套",
+		"price":"83",
+		"number":"7230",
+		"img":"../images/spring and autumn/s-jacket3.png",
+		"category":"春秋潮款",
+		"_id":"5"	
+	},
+	{
+		"clothName":"印花鸭子牛仔长裤",
+		"price":"98",
+		"number":"6390",
+		"img":"../images/spring and autumn/s-trousers1.png",
+		"category":"春秋潮款",
+		"_id":"6"	
+	},
+	{
+		"clothName":"新款潮纯棉长裤",
+		"price":"107",
+		"number":"6232",
+		"img":"../images/spring and autumn/s-trousers2.png",
+		"category":"春秋潮款",
+		"_id":"7"	
+	},
+	{
+		"clothName":"大童长裤",
+		"price":"65.1",
+		"number":"6300",
+		"img":"../images/spring and autumn/s-trouser3.png",
+		"category":"春秋潮款",
+		"_id":"8"	
+	},
+	{
+		"clothName":"单穿纯棉圆领长袖t恤",
+		"price":"58.9",
+		"number":"3230",
+		"img":"../images/spring and autumn/s-longshirt1.png",
+		"category":"春秋潮款",
+		"_id":"9"	
+	},
+	{
+		"clothName":"纯白宝宝弹力长袖T恤",
+		"price":"58.1",
+		"number":"6500",
+		"img":"../images/spring and autumn/s-longshirt2.png",
+		"category":"春秋潮款",
+		"_id":"10"	
+	},
+	{
+		"clothName":"春款童装西红色长袖T恤",
+		"price":"65.9",
+		"number":"7230",
+		"img":"../images/spring and autumn/s-longshirt3.png",
+		"category":"春秋潮款",
+		"_id":"11"	
+	}
+
+]

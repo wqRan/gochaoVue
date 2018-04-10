@@ -1,0 +1,121 @@
+// ======container======
+.orderSure{
+	width: 998px;
+    height: auto;
+    border: 1px solid #ebebeb;
+    margin: 10px auto 0 auto;
+    color: #4c4c4c;
+    padding-bottom: 30px;
+    //1：订单提示信息
+    .buyCar{
+    	margin-top: 30px;
+    	margin-left: 20px;
+    }
+    //2：配送方式
+    .orderSure-title {
+	    margin-left: 20px;
+	    font-family: "Microsoft YaHei";
+	    overflow: hidden;
+	    height: 33px;
+	    line-height: 33px;
+	    background-color: #fafafa;
+	    border-top: 1px solid #ededed;
+	    width: 960px;
+	    margin-top: 30px;
+	    span {
+		    display: block;
+		    margin-left: 20px;
+		    font-size: 16px;
+		    color: #000;
+		    padding-left: 20px;
+		    background: url(../../../static/images/newx-mini.png) no-repeat -2px -772px;
+		}	
+	}
+}
+
+		.commoditylisy{
+			margin-left: 60px;
+			.buyCar-table {
+			    margin-top: 10px;
+			    border-collapse: collapse;
+			    // width:888px;
+			    margin-left:0;
+			    .first{
+			    	height: 40px;
+			    }
+			    th {
+				    border: 1px solid #ededed;
+				    text-align: center;
+				    background-color: #fafafa;
+				    color: #a5a5a5;
+				    font-weight:bold;
+				}
+				td{
+					font-size:14px;
+					height:70px;
+				    border: 1px solid #ededed;
+				    padding-top: 8px;
+				    padding-bottom: 8px;
+				    text-align:center;
+				    font-weight:bold;
+				    .red {
+					    color: #cc0001;
+					   	font-weight:bold;
+					}
+					a{
+						font-size:14px;
+					}
+				}
+				
+				.buyCarImg{
+					display: inline-block;
+					width:80px; 
+					height: 80px;
+					border: 1px solid #000;
+				}
+				.noborder{
+					border:none;
+				}
+				.time{
+					padding:0 7px;
+				}
+				.endprice,.Allprice{
+					color:#cc0001;
+					font-size:16px;
+					font-weight:bold;
+				}
+				.delectitem{
+					display: inline-block;
+					width:40px;
+					height: 20px;
+					line-height: 20px;
+					text-align: center;
+					border-radius: 5px;
+					padding: 0 5px;
+					font-size: 12px;
+					font-weight: bold;
+					background:#000;
+					color: #fff;
+				}
+			}
+		}
+
+
+
+
+
+	.submit{
+			float:right;
+			margin-right:100px;
+			margin-top:40px;
+			width:100px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			border-radius: 10px;
+			padding: 0 10px;
+			font-size: 18px;
+			font-weight: bold;
+			background:#cc0001;
+			color: #fff;
+		}

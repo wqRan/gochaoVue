@@ -1,0 +1,133 @@
+@import "reset";
+
+.login{
+	width: 100%;
+	height:100%;
+	//logo部分
+	.logo{
+		width:100%;
+		text-align:center;
+		height:80px;
+		vertical-align: middle;
+		margin:25px 0;
+		img{
+			height:80px;
+			display:inline-block;
+		}
+		span{
+			width:0;
+			height:100%;
+			display:inline-block;
+		}
+	}
+	form{
+		margin: 0 auto;
+		width:300px;
+		position: relative;
+		
+	   		// right a
+			.cont-righta {
+			    width: 300px;
+			    height: 46px;
+			    text-align: center;
+			    line-height: 46px;
+			    display: block;
+			    overflow: hidden;
+			    background:#CD0000;
+			    a{
+				    color: #fff;
+				    font-size: 16px;
+				    font-weight:bold;
+				    &:hover{
+				    	color:#3399cc;
+				    }
+			    }
+			}
+			// right b
+			.cont-rightb {
+			    width: 258px;
+			    height: auto;
+			    position: relative;
+			    zoom: 1;
+			    border-left: 1px solid #dcdcdc;
+			    border-right: 1px solid #dcdcdc;
+			    border-bottom: 1px solid #dcdcdc;
+			    padding: 25px 0 25px 40px;
+			     input{
+					    border: 1px solid #dfdfdf;
+					    height: 28px;
+					    outline: none;
+					    text-indent: 5px;
+    					line-height: 28px;
+    					width:218px;
+    					margin-bottom: 20px;
+					}
+				// 用户名
+			    .rightb-email {
+				    position: relative;
+				    zoom: 1;
+				    z-index: 300;
+				    width: 220px;
+				    height: 30px;
+				   
+					.login-cont-inp1 {
+					    width: 218px;
+					    height: 28px;
+					    border: 1px solid #c8c8c8;
+					    color: #a5a5a5;
+					    text-indent: 5px;
+					    line-height: 28px;
+					}
+					.login-cont-rightb-close{
+					    width: 12px;
+					    height: 12px;
+					    position: absolute;
+					    z-index:999;
+					    right: 7px;
+					    top: 9px;
+					    cursor: pointer;
+					    display:none;
+					}
+				}
+				// 密码
+				.mt15{
+					margin-top: 15px;
+				}
+				// 忘记密码
+				.login-error-cont {
+				    width: 220px;
+				    margin-top: 10px;
+				    .tips{
+				    	color:#cd1414;
+				    	font-weight:bold;
+				    	// display:none;
+				    }
+				    .fr {
+					    float: right;
+					    color: #3399cc;
+					    &:hover{
+					    	color:#CD0000;
+					    }
+					}
+				}
+				// 登录按钮
+				.pt10 {
+				    padding-top: 26px;
+				    .login-submit {
+					    width: 220px;
+					    height: 34px;
+					    color: #fff;
+					    border: none;
+					    cursor: pointer;
+					    background:#CD0000;
+					    font-weight:bold;
+					    text-align: center;
+					    &:hover{
+					    	color:#3399cc;
+					    }
+					}
+				}
+			}
+
+	}
+}
