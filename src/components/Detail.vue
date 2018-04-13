@@ -91,16 +91,7 @@
 		<div class="price clear">
 			<label>选择尺码：</label>
 			<ul class="date-ul" id="money">
-				<li>40cm</li>
-				<li>50cm</li>
-				<li>60cm</li>
-				<li>70cm</li>
-				<li>80cm</li>
-				<li>90cm</li>
-				<li>100cm</li>
-				<li>110cm</li>
-				<li>120cm</li>
-				<li>其他</li>		
+				<li v-for="(p,i) in this.size" :key="i._id" @click="chooseSize(i,$event)">{{p}}</li>	
 			</ul>
 		</div>
 		<!-- 选择数量 -->
@@ -109,19 +100,19 @@
 			<div class="relt-list" id="JreltList">
 			<ul class="relt clear">						
 				<li>
-					<dl><a href="javascript:void(0);" n="6" class="relt-prev" ></a>
-						<input type="text" class="yl-order" maxlength="2" value="1" n="6" >
-						<a href="javascript:void(0);" class="relt-next" ></a></dl>
+					<dl><a href="javascript:void(0);" n="6" class="relt-prev" @click="prev()" ></a>
+						<input type="text" class="yl-order" maxlength="2" :value=val n="6" >
+						<a href="javascript:void(0);" class="relt-next" @click="next()"></a></dl>
 				</li>
 				<li class="relt-1"></li>
 				<li class="relt-2"></li>
-				<li class="ok">请选择时尺码和件数</li>
+				<li class="ok">{{this.val}}件、{{this.resSize}}</li>
 			</ul>
 			</div>
 		</div>
 		<!-- 购买按钮 -->
 		<div class="buyBtn">
-			<router-link to="/shopcar"><div class="buy">加入购物车</div></router-link>
+			<div class="buy" @click="buy()">加入购物车</div>
 		</div>
 	</div>
 </div>
@@ -132,6 +123,7 @@
 
 import axios from 'axios'
 import Headmsg from './Head.vue'
+import wsCache from 'web-storage-cache'
 
 export default {
 	components:{
@@ -142,14 +134,21 @@ export default {
             data:[],
             save:'',
             havepic:false,
-            URL:''
+            URL:'',
+            val:1,
+            size:['40cm','50cm','60cm','70cm','80cm','90cm','100cm','110cm','120cm','其他'],
+            resSize:'',
+            money:'',
+            img:'',
+            comname:''
         }
     },
   	mounted(){
-		let count = location.hash.split('/')
-		let i = count.length;
-		let id = count[i-2];
-		let text = count[i-1];
+
+		var count = location.hash.split('/')
+		var i = count.length;
+		var id = count[i-2];
+		var text = count[i-1];
 
 		if (text == 'undefined') {
 			this.URL = '/api/newslist/item/'+id
@@ -175,13 +174,69 @@ export default {
 		           	this.havepic = true
 		           }
 		           this.data = data
+		           this.money = data.comPrice
+		           this.img = data.comPic
+		           this.comname = data.comName
 	        	}else {
 
 	        		this.data = result.data[id]
+	        		this.money = result.data[id].price
+	        		this.img = result.data[id].img
+	        		this.comname = result.data[id].clothName
 	        	}
 
 	        })
 
+	},
+	methods:{
+
+		prev(){
+			if (this.val>1) {
+				this.val --
+			}else {
+				this.val = 1
+			}
+		},
+		next(){
+			this.val ++
+		},
+		chooseSize(i,e){
+			this.resSize = e.target.innerText
+		},
+		buy(){
+			var count = location.hash.split('/')
+			var i = count.length;
+			var id = count[i-2];
+			var text = count[i-1];
+
+
+			const data = JSON.parse(localStorage.getItem('username'))
+			if (data != null) {
+
+				if ( this.resSize != '') {
+					axios({
+						method:'post',
+						url:'/api/buycar/add',
+						data:{
+							img:this.img,
+							comname:this.comname,
+					      	number:this.val,
+					      	size:this.resSize,
+					      	money:this.money,
+					      	allmoney:this.money * this.val
+						}
+					})
+					.then((result)=>{
+					})
+				}else{
+					this.resSize = '请选择尺寸'
+				}
+			}
+
+			this.$router.push({
+								path:'/shopcar'
+							})
+		}
 	}
 
 

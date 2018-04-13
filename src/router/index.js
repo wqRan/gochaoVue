@@ -7,6 +7,7 @@ import ResgiterCmpt from '@/components/Resgiter'
 import DetailCmpt from '@/components/Detail'
 import CommondityCmpt from '@/components/Commondity'
 import ShopcarCmpt from '@/components/Shopcar'
+import SearchCmpt from '@/components/Search'
 
 Vue.use(Router)
 
@@ -40,7 +41,13 @@ export default new Router({
     {
       path: '/shopcar',
       name: 'shopcar',
-      component: ShopcarCmpt
+      component: ShopcarCmpt,
+      meta:{requiresAuth:true}
+    },
+    {
+      path: '/search/:id',
+      name: 'search',
+      component: SearchCmpt
     }
   ]
 })

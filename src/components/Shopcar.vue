@@ -14,18 +14,28 @@
 					<tr class="first">
 						<th style="width:150px">商品图片</th>
 						<th style="width:300px">商品名称</th>
-						<th style="width:100px">单价</th>
-						<th style="width:100px">数量</th>
+						<th style="width:80px">尺寸</th>
+						<th style="width:80px">单价</th>
+						<th style="width:80px">数量</th>
 						<th style="width:100px">小计(元)</th>
 						<th style="width:100px">操作</th>
 					</tr>
-					<tr>
-					<td><span class="buyCarImg"><img src=""></span></td>
-					<td class="time">24423432</td>
-					<td class="endprice">2432434</td>				
-					<td class="endnum">32434324</td>
-					<td class="Allprice">3243432元</td>
-					<td><span class="delectitem">删除</span></td>
+					<tr v-for="(p,i) in this.data" :key="i._id">
+					<td><span class="buyCarImg" >
+						<template v-if="p.img.slice(0,2) == 'co'">
+							<img :src="`http://localhost:8000/uploads/${p.img}`">
+						</template>
+						<template v-if="p.img.slice(0,2) == '..'">
+							<img :src="`/static/static/${p.img}`">
+						</template>
+					</span>
+					</td>
+					<td class="time" >{{p.comname}}</td>
+					<td class="endnum">{{p.size}}</td>				
+					<td class="endnum">{{p.money}}</td>				
+					<td class="endnum">{{p.number}}</td>
+					<td class="Allprice">{{p.allmoney}}</td>
+					<td><span class="delectitem" @click="remove(p._id)">删除</span></td>
 					</tr>
 
 					</tbody>
@@ -44,12 +54,44 @@
 	
 import Vue from 'vue'
 import Headmsg from './Head.vue'
-
+import axios from 'axios'
 import wsCache from 'web-storage-cache'
 
 export default {
 	components:{
 	  	Headmsg
+  	},
+	data:() => {
+        return{
+        	data:[],
+        	havePic:false,
+        	haveImg:false
+
+        }
+    },
+  	mounted(){
+  		axios({
+	            url:'/api/buycar/find'
+	        })
+	        .then((result) => {
+
+	        	this.data = result.data.data        		    
+	        })
+
+
+  	},
+  	methods:{
+  		remove(id){
+
+  			axios({
+	            url:'/api/buycar/remove/'+id
+	        })
+	        .then((result) => {
+
+	        	location.reload()
+
+	        })
+  		}
   	}
 }
 

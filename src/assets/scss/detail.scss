@@ -460,7 +460,7 @@ body{
 						    width: 140px;						    
 						}
 						.ok{
-							display:none;
+							// display:none;
 						}
 					}
 				}
@@ -485,6 +485,7 @@ body{
 				    overflow: hidden;
 				    background: #cc0001;
 				    border-radius: 5px;
+				    cursor: pointer;
 
     			}
 			}

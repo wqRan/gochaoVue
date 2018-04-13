@@ -1,4 +1,7 @@
 <template>
+<div class="littleBody clear">
+	<!--........... 头部 .........-->
+
 	<div class="head">
 		<!-- top部分 -->
 		<div class="header-top clear">
@@ -42,6 +45,29 @@
 			<router-link tag="li" to="/commondity/2">夏季新衣</router-link></li>
 		</ul>
 	</div>
+
+	<!-- ...... 搜索列表 ....... -->
+	<div class="news11" id="list">
+		<dl class="detailNews" v-for="(v,i) in data" 
+			:key="i._id" 
+			@click="routrTo(v._id,v.category)">
+	    <template v-if="v.comPic">
+	  		<dt>
+	  		  <img :src="`http://localhost:8000/uploads/${v.comPic}`" alt="">
+	      	</dt>
+	  		<dd>{{v.comName}}</dd>
+	  		<dd><span class="hsfh">¥</span> <span class="price">{{v.comPrice}}元</span></dd>
+	    </template>
+	    <template v-else-if="v.img">
+	      <dt>
+	        <img :src="`/static/static/${v.img}`" alt="">
+	      </dt>
+	      <dd>{{v.clothName}}</dd>
+	      <dd><span class="hsfh">¥</span> <span class="price">{{v.price}}元</span></dd>
+	    </template>
+		</dl>
+	</div>
+</div>
 </template>
 
 <script>
@@ -51,19 +77,33 @@ import wsCache from 'web-storage-cache'
 import axios from 'axios'
 
 export default {
-  	data: ()=>{
-		return{
-			tip:'亲，您还未登录！',
-			msg:false,
-			searchData:''
-		}
-	},
-	mounted(){
-		const data = JSON.parse(localStorage.getItem('username'))
+	
+  	data:() => {
+        return{
+            data:[],
+            searchData:'',
+            tip:'亲，您还未登录！',
+			msg:false
+        }
+    },
+  	mounted(){
+  		const data = JSON.parse(localStorage.getItem('username'))
 		if (data) {
 			this.msg = true
 			this.tip = '欢迎您：' + data.v.replace(/\"([^\"]*)\"/,'$1')
 		}
+
+		var count = location.hash.split('/')
+		var i = count.length;
+		var text = count[i-1];
+
+		axios({
+	            url:'/api/newslist/search/'+text,
+	            method:'POST'
+	        })
+	        .then((result) => {
+	        	this.data = result.data.data
+	        })
 	},
 	methods:{
 		goout(){
@@ -78,10 +118,18 @@ export default {
 		    }
 		},
 		search(){
-			
 			this.$router.push({
 							path:'/search/'+this.searchData
 						})
+			axios({
+	            url:'/api/newslist/search/'+this.searchData,
+	            method:'POST'
+	        })
+	        .then((result) => {
+	        	this.data = result.data.data
+	        	this.searchData=""
+	        })
+	  	
 		}
 	}
 }
